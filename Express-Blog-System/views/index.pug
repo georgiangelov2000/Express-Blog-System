@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  if posts 
+    each post, i in posts 
+      .post 
+        a(href="/posts/show#{post._id}")
+          =post.title 
+        p.meta Posted in #{post.category} by #{post.author} on #{moment(post.date).format("MM-DD-YYYY")} 
+        =post.body 
+        a.more(href="/posts/show#{post._id}") Read More 
